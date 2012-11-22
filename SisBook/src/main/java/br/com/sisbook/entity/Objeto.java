@@ -4,12 +4,15 @@
  */
 package br.com.sisbook.entity;
 
+import br.com.sisbook.type.Genero;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
 /**
@@ -26,6 +29,10 @@ public class Objeto implements Serializable {
     private String resumo;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date anoPublicacao;
+    @OneToMany
+    private List<Solicitacao> solicitacoes;
+    
+    private Genero genero;
 
     public Long getId() {
         return id;
@@ -57,6 +64,22 @@ public class Objeto implements Serializable {
 
     public void setAnoPublicacao(Date anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
+    }
+
+    public List<Solicitacao> getSolicitacoes() {
+        return solicitacoes;
+    }
+
+    public void setSolicitacoes(List<Solicitacao> solicitacoes) {
+        this.solicitacoes = solicitacoes;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
     }
 
     @Override

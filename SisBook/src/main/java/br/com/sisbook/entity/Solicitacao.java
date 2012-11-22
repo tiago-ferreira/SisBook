@@ -4,6 +4,7 @@
  */
 package br.com.sisbook.entity;
 
+import br.com.sisbook.type.Status;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -26,6 +27,8 @@ public class Solicitacao implements Serializable {
     private Date dataSolicitacao;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataDevolucao;
+    
+    private Status status;
 
     public Long getId() {
         return id;
@@ -33,6 +36,22 @@ public class Solicitacao implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Date getDataSolicitacao() {
+        return dataSolicitacao;
+    }
+
+    public void setDataSolicitacao(Date dataSolicitacao) {
+        this.dataSolicitacao = dataSolicitacao;
+    }
+
+    public Date getDataDevolucao() {
+        return dataDevolucao;
+    }
+
+    public void setDataDevolucao(Date dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
     }
 
     @Override

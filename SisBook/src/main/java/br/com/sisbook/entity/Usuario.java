@@ -4,11 +4,17 @@
  */
 package br.com.sisbook.entity;
 
+import br.com.sisbook.type.Sexo;
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -28,7 +34,20 @@ public class Usuario implements Serializable {
     private Integer pontos;
     private String senha;
     private String papel;
+  
+    private Sexo sexo;
     
+    @OneToOne(cascade= CascadeType.ALL)
+    private Endereco endereco;
+    
+    @OneToMany
+    private List<Solicitacao> solicitacoes;
+    
+    @ManyToOne
+    private Usuario usuario;
+    
+    @ManyToOne
+    private Objeto objeto;
 
     public Long getId() {
         return id;
@@ -100,6 +119,46 @@ public class Usuario implements Serializable {
 
     public void setPapel(String papel) {
         this.papel = papel;
+    }
+
+    public Sexo getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(Sexo sexo) {
+        this.sexo = sexo;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public List<Solicitacao> getSolicitacoes() {
+        return solicitacoes;
+    }
+
+    public void setSolicitacoes(List<Solicitacao> solicitacoes) {
+        this.solicitacoes = solicitacoes;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Objeto getObjeto() {
+        return objeto;
+    }
+
+    public void setObjeto(Objeto objeto) {
+        this.objeto = objeto;
     }
 
     @Override

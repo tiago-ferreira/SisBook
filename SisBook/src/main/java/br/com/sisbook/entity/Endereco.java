@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -24,6 +25,8 @@ public class Endereco implements Serializable {
     private String logradouro;
     private String complemento;
     private Integer numero;
+    @ManyToOne
+    private Cidade cidade;
 
     public Long getId() {
         return id;
@@ -55,6 +58,14 @@ public class Endereco implements Serializable {
 
     public void setNumero(Integer numero) {
         this.numero = numero;
+    }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
 
     @Override

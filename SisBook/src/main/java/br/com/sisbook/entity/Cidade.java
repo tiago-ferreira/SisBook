@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -22,6 +23,8 @@ public class Cidade implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String descricao;
+    @ManyToOne
+    private Uf uf;
 
     public Long getId() {
         return id;
@@ -37,6 +40,14 @@ public class Cidade implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Uf getUf() {
+        return uf;
+    }
+
+    public void setUf(Uf uf) {
+        this.uf = uf;
     }
 
     @Override
