@@ -1,0 +1,31 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/arquivos/modelos/decorador.xhtml">
+	<ui:define name="titulo">Cadastro de Usuarios</ui:define>
+
+	<ui:define name="conteudo">
+		<h1>Cadastro de Usuarios</h1>
+
+		<f:view>
+			<h:form>
+                            <h:dataTable value="#{usuarioManaged.listagem}" var="item">
+					<h:column>
+						<f:facet name="header">Nome</f:facet>
+                                                <h:outputText value="#{item.nome}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Email</f:facet>
+                                                <h:outputText value="#{item.email}" />
+					</h:column>
+				</h:dataTable>
+
+                            <h:commandButton action="#{usuarioManaged.atualizaListagem}" value="Atualizar" />
+
+				<h:commandButton action="/usuario/form.xhtml" value="Novo Usuario" />
+			</h:form>
+		</f:view>
+	</ui:define>
+</ui:composition>

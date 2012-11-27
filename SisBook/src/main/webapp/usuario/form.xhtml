@@ -1,0 +1,84 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/arquivos/modelos/decorador.xhtml">
+    <ui:define name="titulo">Cadastro de Usuarios</ui:define>
+
+    <ui:define name="conteudo">
+        <h1>Cadastro de Usuarios</h1>
+
+        <ui:decorate template="/arquivos/modelos/form.xhtml">
+            <h:form id="form">
+                <h:panelGroup id="campoNome">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:nome" />
+                        <ui:define name="nome">Nome</ui:define>
+                        <h:inputText id="nome" value="#{usuarioManaged.usuario.nome}"/>
+                    </ui:decorate>
+                </h:panelGroup>
+                <h:panelGroup id="campoEmail">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:email" />
+                        <ui:define name="nome">Email</ui:define>
+                        <h:inputText id="email" value="#{usuarioManaged.usuario.email}"/>
+                    </ui:decorate>
+                </h:panelGroup>
+
+                <ui:decorate template="/arquivos/modelos/form.xhtml">
+                    <h:form id="form">
+                        <h:panelGroup id="campoCpf">
+                            <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                <ui:param name="id" value="form:cpf" />
+                                <ui:define name="nome">CPF</ui:define>
+                                <h:inputText id="cpf" value="#{usuarioManaged.usuario.cpf}"/>
+                            </ui:decorate>
+                        </h:panelGroup>
+                        <h:panelGroup id="campoRg">
+                            <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                <ui:param name="id" value="form:rg" />
+                                <ui:define name="nome">RG</ui:define>
+                                <h:inputText id="rg" value="#{usuarioManaged.usuario.rg}"/>
+                            </ui:decorate>
+                        </h:panelGroup>
+
+
+
+                        <ui:decorate template="/arquivos/modelos/form.xhtml">
+                            <h:form id="form">
+                                <h:panelGroup id="campoSenha">
+                                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                        <ui:param name="id" value="form:senha" />
+                                        <ui:define name="nome">Senha</ui:define>
+                                        <h:inputText id="senha" value="#{usuarioManaged.usuario.senha}"/>
+                                    </ui:decorate>
+                                </h:panelGroup>
+
+                                <h:panelGroup id="campoSexo">
+                                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                        <ui:param name="id" value="form:sexo" />
+                                        <ui:define name="nome">Sexo</ui:define>
+                                        <h:selectOneMenu id="sexo" value="#{usuarioManaged.sexo}">
+                                            <f:selectItems value="#{usuarioManaged.sexos}"/>
+                                        </h:selectOneMenu>
+                                    </ui:decorate>
+                                </h:panelGroup>
+
+
+
+
+                                <ui:decorate template="/arquivos/modelos/botoes.xhtml">
+                                    <h:commandButton action="#{usuarioManaged.salvar}" value="OK" />
+                                    <h:commandButton action="/usuario/lista.xhtml" value="Cancelar" immediate="true" />
+                                </ui:decorate>
+                            </h:form>
+                        </ui:decorate>
+
+                    </h:form>
+                </ui:decorate>
+            </h:form>
+        </ui:decorate>
+    </ui:define>
+</ui:composition>
+

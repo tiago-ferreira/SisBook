@@ -4,16 +4,16 @@
  */
 package br.com.sisbook.entity;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  *
  * @author tiago
  */
 @Entity
-public class Livro extends Objeto implements Serializable {
-    private static final long serialVersionUID = 1L;
+@PrimaryKeyJoinColumn(name="id")
+public class Livro extends Objeto {
 
     private String editora;
     private String edicao;

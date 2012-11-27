@@ -6,16 +6,17 @@ package br.com.sisbook.entity;
 
 import br.com.sisbook.type.EstiloMidia;
 import br.com.sisbook.type.TipoMidia;
-import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  *
  * @author tiago
  */
 @Entity
-public class Midia extends Objeto implements Serializable {
-    private static final long serialVersionUID = 1L;
+@PrimaryKeyJoinColumn(name="id")
+public class Midia extends Objeto {
+
 
     private String direcao;
     private String faixaEtaria; 
