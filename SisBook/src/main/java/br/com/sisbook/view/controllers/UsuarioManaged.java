@@ -7,20 +7,23 @@ package br.com.sisbook.view.controllers;
 import br.com.sisbook.entity.Usuario;
 import br.com.sisbook.service.IUsuarioService;
 import br.com.sisbook.type.Sexo;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.enterprise.inject.Model;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import javax.inject.Named;
 
 /**
  *
  * @author tiago
  */
-@Model
-public class UsuarioManaged {
+@Named
+@SessionScoped
+public class UsuarioManaged implements Serializable {
 
     @EJB
     private IUsuarioService usuarioService;
@@ -37,6 +40,17 @@ public class UsuarioManaged {
         return sexos;
     }
 
+    public String edita(Usuario usuario) {
+        this.setUsuario(usuario);
+        return "/usuario/form.xhtml";
+    }
+
+    public String remove(Usuario usuario) {
+        usuarioService.remover(usuario);
+        atualizaListagem();
+        return "/usuario/lista.xhtml";
+    }
+
     public List<Usuario> getListagem() {
         return usuarioService.getListagem();
     }
@@ -47,7 +61,7 @@ public class UsuarioManaged {
 
     public String salvar() {
         usuario.setSexo(Sexo.values()[Integer.parseInt(sexo)]);
-        usuarioService.criar(usuario);
+        usuarioService.salvar(usuario);
         return "/usuario/lista.xhtml";
     }
 
@@ -69,5 +83,9 @@ public class UsuarioManaged {
 
     public Usuario getUsuario() {
         return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

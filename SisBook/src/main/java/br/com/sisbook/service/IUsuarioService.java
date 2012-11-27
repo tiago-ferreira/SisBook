@@ -14,7 +14,8 @@ import java.util.List;
 public interface IUsuarioService {
     	List<Usuario> getListagem();
 	void atualizarListagem();
-	void criar(Usuario usuario);
+	void salvar(Usuario usuario);
 	Usuario recuperar(Long id);
 	Usuario recuperarPorEmail(String email);
+        void remover(Usuario usuario);
 }

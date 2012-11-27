@@ -39,7 +39,7 @@ public class UsuarioService implements IUsuarioService,Serializable{
     }
 
     @Override
-    public void criar(Usuario usuario) {
+    public void salvar(Usuario usuario) {
         usuarioDAO.salvar(usuario);
         listagem = null;
     }
@@ -52,6 +52,11 @@ public class UsuarioService implements IUsuarioService,Serializable{
     @Override
     public Usuario recuperarPorEmail(String email) {
        return usuarioDAO.recuperaPorEmail(email);
+    }
+
+    @Override
+    public void remover(Usuario usuario) {
+        usuarioDAO.excluir(usuario);
     }
 
 }
