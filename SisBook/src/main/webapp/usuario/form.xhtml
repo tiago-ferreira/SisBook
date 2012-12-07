@@ -3,31 +3,45 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
                 template="/arquivos/modelos/decorador.xhtml">
     <ui:define name="titulo">Cadastro de Usuarios</ui:define>
 
     <ui:define name="conteudo">
         <h1>Cadastro de Usuarios</h1>
 
-        <ui:decorate template="/arquivos/modelos/form.xhtml">
-            <h:form id="form">
-                <h:panelGroup id="campoNome">
-                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
-                        <ui:param name="id" value="form:nome" />
-                        <ui:define name="nome">Nome</ui:define>
-                        <h:inputText id="nome" value="#{usuarioManaged.usuario.nome}"/>
-                    </ui:decorate>
-                </h:panelGroup>
-                <h:panelGroup id="campoEmail">
-                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
-                        <ui:param name="id" value="form:email" />
-                        <ui:define name="nome">Email</ui:define>
-                        <h:inputText id="email" value="#{usuarioManaged.usuario.email}"/>
-                    </ui:decorate>
-                </h:panelGroup>
 
-                <ui:decorate template="/arquivos/modelos/form.xhtml">
-                    <h:form id="form">
+        <h:form id="form">
+
+            <p:wizard>
+                <p:tab id="infoUsuario" title="Usuario">
+                    <ui:decorate template="/arquivos/modelos/form.xhtml">
+                        <h:panelGroup id="campoNome">
+                            <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                <ui:param name="id" value="form:nome" />
+                                <ui:define name="nome">Nome</ui:define>
+                                <h:inputText id="nome" value="#{usuarioManaged.usuario.nome}"/>
+                            </ui:decorate>
+                        </h:panelGroup>
+
+                        <h:panelGroup id="campoDataNascimento">
+                            <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                <ui:param name="id" value="form:dataNascimento" />
+                                <ui:define name="nome">Data de Nascimento</ui:define>
+                                <p:calendar  id="dataNascimento" value="#{usuarioManaged.usuario.dataNascimento}" pattern="dd/MM/yyyy"  
+                                             locale="pt_BR"/>
+                            </ui:decorate>
+                        </h:panelGroup>
+
+                        <h:panelGroup id="campoEmail">
+                            <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                <ui:param name="id" value="form:email" />
+                                <ui:define name="nome">Email</ui:define>
+                                <h:inputText id="email" value="#{usuarioManaged.usuario.email}"/>
+                            </ui:decorate>
+                        </h:panelGroup>
+
+
                         <h:panelGroup id="campoCpf">
                             <ui:decorate template="/arquivos/modelos/campo.xhtml">
                                 <ui:param name="id" value="form:cpf" />
@@ -35,6 +49,7 @@
                                 <h:inputText id="cpf" value="#{usuarioManaged.usuario.cpf}"/>
                             </ui:decorate>
                         </h:panelGroup>
+
                         <h:panelGroup id="campoRg">
                             <ui:decorate template="/arquivos/modelos/campo.xhtml">
                                 <ui:param name="id" value="form:rg" />
@@ -44,41 +59,106 @@
                         </h:panelGroup>
 
 
+                        <h:panelGroup id="campoSenha">
+                            <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                <ui:param name="id" value="form:senha" />
+                                <ui:define name="nome">Senha</ui:define>
+                                <h:inputText id="senha" value="#{usuarioManaged.usuario.senha}"/>
+                            </ui:decorate>
+                        </h:panelGroup>
 
-                        <ui:decorate template="/arquivos/modelos/form.xhtml">
-                            <h:form id="form">
-                                <h:panelGroup id="campoSenha">
-                                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
-                                        <ui:param name="id" value="form:senha" />
-                                        <ui:define name="nome">Senha</ui:define>
-                                        <h:inputText id="senha" value="#{usuarioManaged.usuario.senha}"/>
-                                    </ui:decorate>
-                                </h:panelGroup>
-
-                                <h:panelGroup id="campoSexo">
-                                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
-                                        <ui:param name="id" value="form:sexo" />
-                                        <ui:define name="nome">Sexo</ui:define>
-                                        <h:selectOneMenu id="sexo" value="#{usuarioManaged.sexo}">
-                                            <f:selectItems value="#{usuarioManaged.sexos}"/>
-                                        </h:selectOneMenu>
-                                    </ui:decorate>
-                                </h:panelGroup>
-
+                        <h:panelGroup id="campoSexo">
+                            <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                <ui:param name="id" value="form:sexo" />
+                                <ui:define name="nome">Sexo</ui:define>
+                                <h:selectOneMenu id="sexo" value="#{usuarioManaged.sexo}">
+                                    <f:selectItems value="#{usuarioManaged.sexos}"/>
+                                </h:selectOneMenu>
+                            </ui:decorate>
+                        </h:panelGroup>
+                    </ui:decorate>
+                </p:tab>
 
 
+                <p:tab id="infoEndereco" title="Endereco">
+                    <ui:decorate template="/arquivos/modelos/form.xhtml">
 
-                                <ui:decorate template="/arquivos/modelos/botoes.xhtml">
-                                    <h:commandButton action="#{usuarioManaged.salvar}" value="OK" />
-                                    <h:commandButton action="/usuario/lista.xhtml" value="Cancelar" immediate="true" />
-                                </ui:decorate>
-                            </h:form>
+                        <h:panelGroup id="campoUF">
+                            <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                <ui:param name="id" value="form:uf" />
+                                <ui:define name="nome">UF</ui:define>
+                                <h:selectOneMenu id="uf" value="#{cidadeManaged.uf}">
+                                    <f:selectItem itemLabel="--Selecione--" itemValue="#{null}" />
+                                    <f:selectItems value="#{cidadeManaged.ufs}" var="uf"/>
+                                    <p:ajax update="cidade uf" listener="#{cidadeManaged.selecionaCidadesUF}"/>
+                                </h:selectOneMenu>
+                            </ui:decorate>
+                        </h:panelGroup>
+
+                        <h:panelGroup id="campoCidade">
+                            <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                <ui:param name="id" value="form:cidade" />
+                                <ui:define name="nome">Cidade</ui:define>
+                                <h:selectOneMenu id="cidade" value="#{usuarioManaged.usuario.endereco.cidade}">
+                                    <f:selectItem itemLabel="--Selecione--" itemValue="#{null}" />
+                                    <f:selectItems value="#{cidadeManaged.cidades}" var="cidade" itemValue="#{cidade}" itemLabel="#{cidade.nomeCidade}"/>
+                                </h:selectOneMenu>
+                            </ui:decorate>
+                        </h:panelGroup>
+
+
+                        <h:panelGroup id="campoCep">
+                            <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                <ui:param name="id" value="form:cep" />
+                                <ui:define name="nome">CEP</ui:define>
+                                <h:inputText id="cep" value="#{usuarioManaged.usuario.endereco.cep}"/>
+                            </ui:decorate>
+                        </h:panelGroup>
+
+                        <h:panelGroup id="campoDataBairro">
+                            <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                <ui:param name="id" value="form:bairro" />
+                                <ui:define name="nome">Bairro</ui:define>
+                                <h:inputText  id="bairro" value="#{usuarioManaged.usuario.endereco.bairro}"/>
+                            </ui:decorate>
+                        </h:panelGroup>
+
+                        <h:panelGroup id="campoLogradouro">
+                            <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                <ui:param name="id" value="form:logradouro" />
+                                <ui:define name="nome">Logradouro</ui:define>
+                                <h:inputText id="logradouro" value="#{usuarioManaged.usuario.endereco.logradouro}"/>
+                            </ui:decorate>
+                        </h:panelGroup>
+
+
+                        <h:panelGroup id="campoNumero">
+                            <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                <ui:param name="id" value="form:numero" />
+                                <ui:define name="nome">Numero</ui:define>
+                                <h:inputText id="numero" value="#{usuarioManaged.usuario.endereco.numero}"/>
+                            </ui:decorate>
+                        </h:panelGroup>
+
+                        <h:panelGroup id="campoComplemento">
+                            <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                                <ui:param name="id" value="form:complemento" />
+                                <ui:define name="nome">Complemento</ui:define>
+                                <h:inputText id="complemento" value="#{usuarioManaged.usuario.endereco.complemento}"/>
+                            </ui:decorate>
+                        </h:panelGroup>
+
+
+                        <ui:decorate template="/arquivos/modelos/botoes.xhtml">
+                            <h:commandButton action="#{usuarioManaged.salvar}" value="OK" />
+                            <h:commandButton action="/usuario/lista.xhtml" value="Cancelar" immediate="true" />
                         </ui:decorate>
+                    </ui:decorate>
+                </p:tab>
 
-                    </h:form>
-                </ui:decorate>
-            </h:form>
-        </ui:decorate>
+            </p:wizard>
+        </h:form>
+
     </ui:define>
 </ui:composition>
 

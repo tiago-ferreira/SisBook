@@ -7,6 +7,7 @@ package br.com.sisbook.entity;
 import br.com.sisbook.type.EstiloMidia;
 import br.com.sisbook.type.TipoMidia;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
@@ -20,7 +21,9 @@ public class Midia extends Objeto {
 
     private String direcao;
     private String faixaEtaria; 
+    @Enumerated
     private TipoMidia tipoMidia;
+    @Enumerated
     private EstiloMidia estiloMidia;
 
     public String getDirecao() {

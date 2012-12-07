@@ -6,12 +6,15 @@ package br.com.sisbook.entity;
 
 import br.com.sisbook.type.Sexo;
 import br.com.sisbook.util.persistence.ObjetoPersistente;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -22,13 +25,15 @@ public class Usuario extends ObjetoPersistente{
 
     private String nome;
     private String email;
-    private String dataNascimento;
+    @Temporal(TemporalType.DATE)
+    private Date dataNascimento;
     private String cpf;
     private String rg;
     private Integer pontos;
     private String senha;
     private String papel;
   
+    @Enumerated
     private Sexo sexo;
     
     @OneToOne(cascade= CascadeType.ALL)
@@ -37,11 +42,13 @@ public class Usuario extends ObjetoPersistente{
     @OneToMany
     private List<Solicitacao> solicitacoes;
     
-    @ManyToOne
-    private Usuario usuario;
-    
     @OneToMany
     private List<Objeto> objetos;
+    
+    
+    public Usuario() {
+        this.endereco = new Endereco();
+    }
 
     public String getNome() {
         return nome;
@@ -59,16 +66,16 @@ public class Usuario extends ObjetoPersistente{
         this.email = email;
     }
 
-    public String getDataNascimento() {
+    public String getCpf() {
+        return cpf;
+    }
+
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
-    }
-
-    public String getCpf() {
-        return cpf;
     }
 
     public void setCpf(String cpf) {
@@ -129,14 +136,6 @@ public class Usuario extends ObjetoPersistente{
 
     public void setSolicitacoes(List<Solicitacao> solicitacoes) {
         this.solicitacoes = solicitacoes;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public List<Objeto> getObjetos() {

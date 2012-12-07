@@ -5,34 +5,56 @@
 package br.com.sisbook.entity;
 
 import br.com.sisbook.util.persistence.ObjetoPersistente;
+import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  *
  * @author tiago
  */
 @Entity
-public class Cidade extends ObjetoPersistente{
+public class Cidade extends ObjetoPersistente implements Serializable{
+ 
+    private static final long serialVersionUID = 1l;
+    
 
-    private String descricao;
-    @ManyToOne
-    private Uf uf;
+    private String sigla;
+    private String uf;
+    private String nomeCidade;
+    private String pais;
 
-    public String getDescricao() {
-        return descricao;
+    public String getSigla() {
+        return sigla;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
     }
 
-    public Uf getUf() {
+    public String getUf() {
         return uf;
     }
 
-    public void setUf(Uf uf) {
+    public void setUf(String uf) {
         this.uf = uf;
     }
 
+    public String getNomeCidade() {
+        return nomeCidade;
+    }
+
+    public void setNomeCidade(String nomeCidade) {
+        this.nomeCidade = nomeCidade;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+    
 }

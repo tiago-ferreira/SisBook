@@ -16,6 +16,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.inject.Named;
+import org.primefaces.event.FlowEvent;
 
 /**
  *
@@ -38,6 +39,11 @@ public class UsuarioManaged implements Serializable {
             sexos.add(new SelectItem(Sexo.MASCULINO.ordinal(), "Masculino"));
         }
         return sexos;
+    }
+
+    public String limparUsuario() {
+        usuario = new Usuario();
+        return "/usuario/form.xhtml";
     }
 
     public String edita(Usuario usuario) {
@@ -73,6 +79,15 @@ public class UsuarioManaged implements Serializable {
         }
     }
 
+    public String onFlowProcess(FlowEvent event) {
+        if(event.getNewStep().equals("infoEndereco") && event.getOldStep().equals("infoUsuario")){
+            return "infoEndereco";
+        }else if(event.getNewStep().equals("infoUsuario") && event.getOldStep().equals("infoEndereco")){
+            return "infoUsuario";
+        }
+        return null;
+    }
+
     public String getSexo() {
         return sexo;
     }
@@ -87,5 +102,13 @@ public class UsuarioManaged implements Serializable {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public IUsuarioService getUsuarioService() {
+        return usuarioService;
+    }
+
+    public void setUsuarioService(IUsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
     }
 }

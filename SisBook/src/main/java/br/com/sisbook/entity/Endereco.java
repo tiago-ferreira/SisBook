@@ -15,12 +15,33 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Endereco extends ObjetoPersistente{
 
+    private String cep;
+    private String bairro;
     private String logradouro;
     private String complemento;
     private Integer numero;
     @ManyToOne
     private Cidade cidade;
 
+    public Endereco(){
+        this.cidade = new Cidade();
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
 
     public String getLogradouro() {
         return logradouro;

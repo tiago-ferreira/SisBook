@@ -8,6 +8,7 @@ import br.com.sisbook.type.Status;
 import br.com.sisbook.util.persistence.ObjetoPersistente;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 
@@ -26,7 +27,7 @@ public class Solicitacao extends ObjetoPersistente{
     private Objeto objeto;
     @ManyToOne
     private Usuario usuario;
-    
+    @Enumerated
     private Status status;
 
     public Date getDataSolicitacao() {
