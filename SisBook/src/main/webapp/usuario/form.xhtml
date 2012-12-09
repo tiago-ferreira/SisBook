@@ -10,7 +10,6 @@
     <ui:define name="conteudo">
         <h1>Cadastro de Usuarios</h1>
 
-
         <h:form id="form">
 
             <p:wizard>
@@ -99,9 +98,9 @@
                             <ui:decorate template="/arquivos/modelos/campo.xhtml">
                                 <ui:param name="id" value="form:cidade" />
                                 <ui:define name="nome">Cidade</ui:define>
-                                <h:selectOneMenu id="cidade" value="#{usuarioManaged.usuario.endereco.cidade}">
+                                <h:selectOneMenu id="cidade" value="#{usuarioManaged.endereco.cidade.id}">
                                     <f:selectItem itemLabel="--Selecione--" itemValue="#{null}" />
-                                    <f:selectItems value="#{cidadeManaged.cidades}" var="cidade" itemValue="#{cidade}" itemLabel="#{cidade.nomeCidade}"/>
+                                    <f:selectItems value="#{cidadeManaged.cidades}" var="cidade" itemValue="#{cidade.id}" itemLabel="#{cidade.nomeCidade}"/>
                                 </h:selectOneMenu>
                             </ui:decorate>
                         </h:panelGroup>
@@ -111,7 +110,7 @@
                             <ui:decorate template="/arquivos/modelos/campo.xhtml">
                                 <ui:param name="id" value="form:cep" />
                                 <ui:define name="nome">CEP</ui:define>
-                                <h:inputText id="cep" value="#{usuarioManaged.usuario.endereco.cep}"/>
+                                <h:inputText id="cep" value="#{usuarioManaged.endereco.cep}"/>
                             </ui:decorate>
                         </h:panelGroup>
 
@@ -119,7 +118,7 @@
                             <ui:decorate template="/arquivos/modelos/campo.xhtml">
                                 <ui:param name="id" value="form:bairro" />
                                 <ui:define name="nome">Bairro</ui:define>
-                                <h:inputText  id="bairro" value="#{usuarioManaged.usuario.endereco.bairro}"/>
+                                <h:inputText  id="bairro" value="#{usuarioManaged.endereco.bairro}"/>
                             </ui:decorate>
                         </h:panelGroup>
 
@@ -127,7 +126,7 @@
                             <ui:decorate template="/arquivos/modelos/campo.xhtml">
                                 <ui:param name="id" value="form:logradouro" />
                                 <ui:define name="nome">Logradouro</ui:define>
-                                <h:inputText id="logradouro" value="#{usuarioManaged.usuario.endereco.logradouro}"/>
+                                <h:inputText id="logradouro" value="#{usuarioManaged.endereco.logradouro}"/>
                             </ui:decorate>
                         </h:panelGroup>
 
@@ -136,7 +135,7 @@
                             <ui:decorate template="/arquivos/modelos/campo.xhtml">
                                 <ui:param name="id" value="form:numero" />
                                 <ui:define name="nome">Numero</ui:define>
-                                <h:inputText id="numero" value="#{usuarioManaged.usuario.endereco.numero}"/>
+                                <h:inputText id="numero" value="#{usuarioManaged.endereco.numero}"/>
                             </ui:decorate>
                         </h:panelGroup>
 
@@ -144,10 +143,9 @@
                             <ui:decorate template="/arquivos/modelos/campo.xhtml">
                                 <ui:param name="id" value="form:complemento" />
                                 <ui:define name="nome">Complemento</ui:define>
-                                <h:inputText id="complemento" value="#{usuarioManaged.usuario.endereco.complemento}"/>
+                                <h:inputText id="complemento" value="#{usuarioManaged.endereco.complemento}"/>
                             </ui:decorate>
                         </h:panelGroup>
-
 
                         <ui:decorate template="/arquivos/modelos/botoes.xhtml">
                             <h:commandButton action="#{usuarioManaged.salvar}" value="OK" />

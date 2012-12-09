@@ -6,19 +6,22 @@ package br.com.sisbook.view.controllers;
 
 import br.com.sisbook.entity.Cidade;
 import br.com.sisbook.service.ICidadeService;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.enterprise.inject.Model;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.model.SelectItem;
+import javax.inject.Named;
 
 /**
  *
  * @author tiago
  */
-@Model
-public class CidadeManaged {
+@Named
+@SessionScoped
+public class CidadeManaged implements Serializable{
 
     @EJB
     private ICidadeService cidadeService;
@@ -35,7 +38,7 @@ public class CidadeManaged {
         }
         return ufs;
     }
-
+    
     public void selecionaCidadesUF() {
         cidades = cidadeService.recuperaCidadePorUF(uf);
     }

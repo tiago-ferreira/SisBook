@@ -10,14 +10,12 @@ import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateful;
-import javax.enterprise.context.SessionScoped;
 
 /**
  *
  * @author tiago
  */
 @Stateful
-@SessionScoped
 public class CidadeService implements ICidadeService,Serializable {
 
     @EJB

@@ -67,6 +67,5 @@ public class CidadeDAO extends BaseDAO<Cidade> implements ICidadeDAO {
             System.out.println("String Value.: "+string);
         }
         return cidades;
-
     }
 }

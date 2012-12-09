@@ -4,6 +4,7 @@
  */
 package br.com.sisbook.view.controllers;
 
+import br.com.sisbook.entity.Endereco;
 import br.com.sisbook.entity.Usuario;
 import br.com.sisbook.service.IUsuarioService;
 import br.com.sisbook.type.Sexo;
@@ -29,9 +30,11 @@ public class UsuarioManaged implements Serializable {
     @EJB
     private IUsuarioService usuarioService;
     private Usuario usuario = new Usuario();
+    private Endereco endereco = new Endereco();
     private String sexo;
     private static List<SelectItem> sexos;
 
+    
     public List<SelectItem> getSexos() {
         if (sexos == null) {
             sexos = new ArrayList<SelectItem>();
@@ -67,6 +70,7 @@ public class UsuarioManaged implements Serializable {
 
     public String salvar() {
         usuario.setSexo(Sexo.values()[Integer.parseInt(sexo)]);
+        usuario.setEndereco(endereco);
         usuarioService.salvar(usuario);
         return "/usuario/lista.xhtml";
     }
@@ -104,11 +108,11 @@ public class UsuarioManaged implements Serializable {
         this.usuario = usuario;
     }
 
-    public IUsuarioService getUsuarioService() {
-        return usuarioService;
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
-    public void setUsuarioService(IUsuarioService usuarioService) {
-        this.usuarioService = usuarioService;
+    public Endereco getEndereco() {
+        return endereco;
     }
 }
