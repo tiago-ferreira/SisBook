@@ -8,6 +8,7 @@ import br.com.sisbook.entity.Livro;
 import br.com.sisbook.persistence.ILivroDAO;
 import java.io.Serializable;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateful;
 import javax.enterprise.context.SessionScoped;
 
@@ -20,6 +21,7 @@ import javax.enterprise.context.SessionScoped;
 public class LivroService implements ILivroService, Serializable {
 
     private List<Livro> listagem;
+    @EJB
     private ILivroDAO livroDAO;
 
     @Override
@@ -38,6 +40,7 @@ public class LivroService implements ILivroService, Serializable {
     @Override
     public void salvar(Livro livro) {
         livroDAO.salvar(livro);
+        listagem = null;
     }
 
     @Override
