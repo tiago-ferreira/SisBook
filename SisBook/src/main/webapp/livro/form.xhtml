@@ -25,7 +25,7 @@
                     <ui:decorate template="/arquivos/modelos/campo.xhtml">
                         <ui:param name="id" value="form:genero" />
                         <ui:define name="nome">Genero</ui:define>
-                        <h:selectOneMenu id="sexo" value="#{livroManaged.genero}">
+                        <h:selectOneMenu id="genero" value="#{livroManaged.genero}">
                             <f:selectItems value="#{livroManaged.generos}"/>
                         </h:selectOneMenu>
                     </ui:decorate>

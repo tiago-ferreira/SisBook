@@ -41,6 +41,7 @@ public class MidiaService implements IMidiaService,Serializable{
     @Override
     public void salvar(Midia midia) {
         midiaDAO.salvar(midia);
+        listagem = null;
     }
 
     @Override

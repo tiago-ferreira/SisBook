@@ -9,5 +9,5 @@ package br.com.sisbook.type;
  * @author tiago
  */
 public enum EstiloMidia {
-    
+    FILME,DOCUMENTARIO,REPORTAGEM,EDUCACIONAL
 }

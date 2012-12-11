@@ -1,0 +1,51 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/arquivos/modelos/decorador.xhtml">
+    <ui:define name="titulo">Listagem de Usuarios</ui:define>
+
+    <ui:define name="conteudo">
+        <h1>Listagem de Midias</h1>
+
+        <f:view>
+            <h:form>
+                <h:dataTable value="#{midiaManaged.listagem}" var="midia">
+                    <h:column>
+                        <f:facet name="header">Titulo</f:facet>
+                        <h:outputText value="#{midia.titulo}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Ano de Publicacao</f:facet>
+                        <h:outputText value="#{midia.anoPublicacao}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" locale="pt_BR"/>
+                        </h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Estilo de Midia</f:facet>
+                        <h:outputText value="#{midia.estiloMidia}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Tipo de Midia</f:facet>
+                        <h:outputText value="#{midia.tipoMidia}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Editar</f:facet>
+                        <h:commandLink action="#{midiaManaged.edita(midia)}" value="Editar"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Remover</f:facet>
+                        <h:commandLink action="#{midiaManaged.remove(midia)}" value="Remover"/>
+                    </h:column>
+                </h:dataTable>
+
+                <h:commandButton action="#{midiaManaged.atualizaListagem}" value="Atualizar" />
+
+                <h:commandButton action="#{midiaManaged.limparMidia}" value="Novo Usuario" />
+            </h:form>
+        </f:view>
+    </ui:define>
+</ui:composition>

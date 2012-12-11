@@ -1,0 +1,102 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/arquivos/modelos/decorador.xhtml">
+    <ui:define name="titulo">Cadastro de Midias</ui:define>
+
+    <ui:define name="conteudo">
+        <h1>Cadastro de Midias</h1>
+
+        <h:form id="form">
+
+            <ui:decorate template="/arquivos/modelos/form.xhtml">
+                <h:panelGroup id="campoTitulo">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:titulo" />
+                        <ui:define name="nome">Titulo</ui:define>
+                        <h:inputText id="titulo" value="#{midiaManaged.midia.titulo}"/>
+                    </ui:decorate>
+                </h:panelGroup>
+
+                <h:panelGroup id="campoGenero">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:genero" />
+                        <ui:define name="nome">Genero</ui:define>
+                        <h:selectOneMenu id="genero" value="#{midiaManaged.genero}">
+                            <f:selectItems value="#{midiaManaged.generos}"/>
+                        </h:selectOneMenu>
+                    </ui:decorate>
+                </h:panelGroup>
+
+                <h:panelGroup id="campoEstiloMidia">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:estiloMidia" />
+                        <ui:define name="nome">EstiloMidia</ui:define>
+                        <h:selectOneMenu id="estiloMidia" value="#{midiaManaged.estiloMidia}">
+                            <f:selectItems value="#{midiaManaged.estiloDeMidias}"/>
+                        </h:selectOneMenu>
+                    </ui:decorate>
+                </h:panelGroup>
+
+                <h:panelGroup id="campoTipoMidia">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:tipoMidia" />
+                        <ui:define name="nome">Tipo de Midia</ui:define>
+                        <h:selectOneMenu id="tipoMidia" value="#{midiaManaged.tipoMidia}">
+                            <f:selectItems value="#{midiaManaged.tipoDeMidias}"/>
+                        </h:selectOneMenu>
+                    </ui:decorate>
+                </h:panelGroup>
+
+
+                <h:panelGroup id="campoAnoPublicacao">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:anoPublicacao" />
+                        <ui:define name="nome">Ano Publicacao</ui:define>
+                        <p:calendar  id="anoPublicacao" value="#{midiaManaged.midia.anoPublicacao}" pattern="dd/MM/yyyy"  
+                                     locale="pt_BR"/>
+                    </ui:decorate>
+                </h:panelGroup>
+
+                <h:panelGroup id="campoDirecao">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:direcao" />
+                        <ui:define name="nome">Direcao</ui:define>
+                        <h:inputText id="direcao" value="#{midiaManaged.midia.direcao}"/>
+                    </ui:decorate>
+                </h:panelGroup>
+
+
+                <h:panelGroup id="campoFaixaEtaria">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:faixaEtaria" />
+                        <ui:define name="nome">Faixa Etaria</ui:define>
+                        <h:inputText id="faixaEtaria" value="#{midiaManaged.midia.faixaEtaria}"/>
+                    </ui:decorate>
+                </h:panelGroup>
+
+
+                <h:panelGroup id="campoResumo">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:resumo" />
+                        <ui:define name="nome">Resumo</ui:define>
+                        <h:inputTextarea cols="30" rows="5" id="resumo" value="#{midiaManaged.midia.resumo}"/>
+                    </ui:decorate>
+                </h:panelGroup>
+
+
+
+                <ui:decorate template="/arquivos/modelos/botoes.xhtml">
+                    <h:commandButton action="#{midiaManaged.salvar}" value="OK" />
+                    <h:commandButton action="/midiax/lista.xhtml" value="Cancelar" immediate="true" />
+                </ui:decorate>
+            </ui:decorate>
+
+        </h:form>
+
+    </ui:define>
+</ui:composition>
+
