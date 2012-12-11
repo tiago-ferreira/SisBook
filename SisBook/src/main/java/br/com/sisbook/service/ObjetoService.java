@@ -6,14 +6,19 @@ package br.com.sisbook.service;
 
 import br.com.sisbook.entity.Objeto;
 import br.com.sisbook.persistence.IObjetoDAO;
+import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.ejb.Stateful;
+import javax.enterprise.context.SessionScoped;
 
 /**
  *
  * @author tiago
  */
-public class ObjetoService implements IObejtoService{
+@Stateful
+@SessionScoped
+public class ObjetoService implements IObjetoService,Serializable{
 
     private List<Objeto> objetos;
     

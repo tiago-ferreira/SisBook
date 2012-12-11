@@ -9,6 +9,7 @@ import br.com.sisbook.util.persistence.ObjetoPersistente;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
@@ -19,8 +20,8 @@ import javax.persistence.Temporal;
  * @author tiago
  */
 @Entity
-@Inheritance(strategy= InheritanceType.JOINED)
-public class Objeto extends ObjetoPersistente{
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Objeto extends ObjetoPersistente {
 
     private String titulo;
     private String resumo;
@@ -28,9 +29,8 @@ public class Objeto extends ObjetoPersistente{
     private Date anoPublicacao;
     @OneToMany
     private List<Solicitacao> solicitacoes;
-    
+    @Enumerated
     private Genero genero;
-
 
     public String getTitulo() {
         return titulo;
@@ -71,5 +71,4 @@ public class Objeto extends ObjetoPersistente{
     public void setGenero(Genero genero) {
         this.genero = genero;
     }
-
 }

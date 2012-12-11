@@ -4,9 +4,8 @@
  */
 package br.com.sisbook.persistence;
 
-import br.com.sisbook.entity.Objeto;
+import br.com.sisbook.entity.Livro;
 import br.com.sisbook.util.persistence.BaseDAO;
-import java.io.Serializable;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author tiago
  */
 @Stateless
-public class ObjetoDAO extends BaseDAO<Objeto> implements IObjetoDAO,Serializable{
+public class LivroDAO extends BaseDAO<Livro> implements ILivroDAO{
 
     @PersistenceContext
     EntityManager em;
@@ -27,8 +26,8 @@ public class ObjetoDAO extends BaseDAO<Objeto> implements IObjetoDAO,Serializabl
     }
 
     @Override
-    protected Class<Objeto> getClasseDominio() {
-        return Objeto.class;
+    protected Class<Livro> getClasseDominio() {
+        return Livro.class;
     }
-    
+
 }

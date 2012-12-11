@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author tiago
  */
-public interface IObejtoService {
+public interface IObjetoService {
     List<Objeto> getListagem();
     void atualizaListagem();
     void salvar(Objeto objeto);

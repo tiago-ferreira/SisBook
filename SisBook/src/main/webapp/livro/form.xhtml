@@ -1,0 +1,89 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/arquivos/modelos/decorador.xhtml">
+    <ui:define name="titulo">Cadastro de Usuarios</ui:define>
+
+    <ui:define name="conteudo">
+        <h1>Cadastro de Livros</h1>
+
+        <h:form id="form">
+
+            <ui:decorate template="/arquivos/modelos/form.xhtml">
+                <h:panelGroup id="campoTitulo">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:titulo" />
+                        <ui:define name="nome">Titulo</ui:define>
+                        <h:inputText id="titulo" value="#{livroManaged.livro.titulo}"/>
+                    </ui:decorate>
+                </h:panelGroup>
+
+                <h:panelGroup id="campoGenero">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:genero" />
+                        <ui:define name="nome">Genero</ui:define>
+                        <h:selectOneMenu id="sexo" value="#{livroManaged.genero}">
+                            <f:selectItems value="#{livroManaged.generos}"/>
+                        </h:selectOneMenu>
+                    </ui:decorate>
+                </h:panelGroup>
+
+                <h:panelGroup id="campoAnoPublicacao">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:anoPublicacao" />
+                        <ui:define name="nome">Ano Publicacao</ui:define>
+                        <p:calendar  id="anoPublicacao" value="#{livroManaged.livro.anoPublicacao}" pattern="dd/MM/yyyy"  
+                                     locale="pt_BR"/>
+                    </ui:decorate>
+                </h:panelGroup>
+
+                <h:panelGroup id="campoAutor">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:autor" />
+                        <ui:define name="nome">Autor</ui:define>
+                        <h:inputText id="autor" value="#{livroManaged.livro.autor}"/>
+                    </ui:decorate>
+                </h:panelGroup>
+
+
+                <h:panelGroup id="campoEditora">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:editora" />
+                        <ui:define name="nome">Editora</ui:define>
+                        <h:inputText id="editora" value="#{livroManaged.livro.editora}"/>
+                    </ui:decorate>
+                </h:panelGroup>
+
+                <h:panelGroup id="campoEdicao">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:edicao" />
+                        <ui:define name="nome">Edicao</ui:define>
+                        <h:inputText id="edicao" value="#{livroManaged.livro.edicao}"/>
+                    </ui:decorate>
+                </h:panelGroup>
+
+
+                <h:panelGroup id="campoResumo">
+                    <ui:decorate template="/arquivos/modelos/campo.xhtml">
+                        <ui:param name="id" value="form:resumo" />
+                        <ui:define name="nome">Resumo</ui:define>
+                        <h:inputTextarea cols="5" id="resumo" value="#{livroManaged.livro.resumo}"/>
+                    </ui:decorate>
+                </h:panelGroup>
+
+
+
+                <ui:decorate template="/arquivos/modelos/botoes.xhtml">
+                    <h:commandButton action="#{livroManaged.salvar}" value="OK" />
+                    <h:commandButton action="/livro/lista.xhtml" value="Cancelar" immediate="true" />
+                </ui:decorate>
+            </ui:decorate>
+
+        </h:form>
+
+    </ui:define>
+</ui:composition>
+

@@ -4,9 +4,8 @@
  */
 package br.com.sisbook.persistence;
 
-import br.com.sisbook.entity.Objeto;
+import br.com.sisbook.entity.Midia;
 import br.com.sisbook.util.persistence.BaseDAO;
-import java.io.Serializable;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,10 +15,10 @@ import javax.persistence.PersistenceContext;
  * @author tiago
  */
 @Stateless
-public class ObjetoDAO extends BaseDAO<Objeto> implements IObjetoDAO,Serializable{
+public class MidiaDAO extends BaseDAO<Midia> implements IMidiaDAO{
 
     @PersistenceContext
-    EntityManager em;
+    private EntityManager em;
     
     @Override
     protected EntityManager getEntityManager() {
@@ -27,8 +26,11 @@ public class ObjetoDAO extends BaseDAO<Objeto> implements IObjetoDAO,Serializabl
     }
 
     @Override
-    protected Class<Objeto> getClasseDominio() {
-        return Objeto.class;
+    protected Class<Midia> getClasseDominio() {
+       return Midia.class;
     }
-    
+
+    // Add business logic below. (Right-click in editor and choose
+    // "Insert Code > Add Business Method")
+
 }
