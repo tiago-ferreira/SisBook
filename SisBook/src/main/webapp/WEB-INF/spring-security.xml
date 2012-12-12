@@ -13,7 +13,7 @@
         <intercept-url pattern="/midia/**" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
         <intercept-url pattern="/arquivos/**" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
         <form-login login-page="/index.xhtml" authentication-failure-url="/erro-login.xhtml?erro=true"
-            default-target-url="/arquivos/modelos/form.xhtml"/>		
+            default-target-url="/arquivos/menu.xhtml"/>		
         <access-denied-handler error-page="/erro-login.xhtml"/>
     </http>
 

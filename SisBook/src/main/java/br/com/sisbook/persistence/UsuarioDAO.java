@@ -43,12 +43,12 @@ public class UsuarioDAO extends BaseDAO<Usuario> implements IUsuarioDAO {
         EntityType<Usuario> model = root.getModel();
         cq.where(cb.equal(root.get(model.getSingularAttribute("email", String.class)), email));
 
-        Usuario ambulancia = null;
+        Usuario usuario = null;
         try {
-            ambulancia = em.createQuery(cq).getSingleResult();
+            usuario = em.createQuery(cq).getSingleResult();
         } catch (RuntimeException e) {
         }
 
-        return ambulancia;
+        return usuario;
     }
 }

@@ -9,7 +9,7 @@
     <ui:define name="conteudo">
         <h1>Bem-vindo ao SisBook</h1>
 
-        <h:panelGroup rendered="#{sessao.funcionarioLogado == null}">
+        <h:panelGroup>
             <p>Seja bem-vindo ao Sistema de Controle de Emprestimo de Livros.
                 Por favor identifique-se utilizando o formulário abaixo.</p>
 
@@ -32,9 +32,5 @@
             </ui:decorate>
         </h:panelGroup>
 
-        <ui:remove><h:panelGroup rendered="Verifica se o funcionario esta logado para mostrar isso">
-                 <p><h:outputText value="Seja bem-vindo(a) ao SisBook, Nome do funcionario logado" /></p>
-                    </h:panelGroup>
-        </ui:remove>
     </ui:define>
 </ui:composition>

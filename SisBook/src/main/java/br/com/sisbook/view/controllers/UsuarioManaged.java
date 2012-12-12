@@ -30,11 +30,15 @@ public class UsuarioManaged implements Serializable {
     @EJB
     private IUsuarioService usuarioService;
     private Usuario usuario = new Usuario();
+
     private Endereco endereco = new Endereco();
     private String sexo;
     private static List<SelectItem> sexos;
 
-    
+    public UsuarioManaged() {
+
+    }
+
     public List<SelectItem> getSexos() {
         if (sexos == null) {
             sexos = new ArrayList<SelectItem>();
@@ -75,6 +79,8 @@ public class UsuarioManaged implements Serializable {
         return "/usuario/lista.xhtml";
     }
 
+
+
     public void verificaEmail() {
         Usuario user = usuarioService.recuperarPorEmail(usuario.getEmail());
         if (user != null) {
@@ -84,13 +90,15 @@ public class UsuarioManaged implements Serializable {
     }
 
     public String onFlowProcess(FlowEvent event) {
-        if(event.getNewStep().equals("infoEndereco") && event.getOldStep().equals("infoUsuario")){
+        if (event.getNewStep().equals("infoEndereco") && event.getOldStep().equals("infoUsuario")) {
             return "infoEndereco";
-        }else if(event.getNewStep().equals("infoUsuario") && event.getOldStep().equals("infoEndereco")){
+        } else if (event.getNewStep().equals("infoUsuario") && event.getOldStep().equals("infoEndereco")) {
             return "infoUsuario";
         }
         return null;
     }
+
+
 
     public String getSexo() {
         return sexo;

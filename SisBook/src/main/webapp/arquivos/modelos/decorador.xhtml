@@ -22,10 +22,10 @@
 				<div id="menu">
 					<ul>
 						<li><h:commandLink value="Início" action="/index.xhtml" /></li>
-						<li><h:commandLink value="Cadastro de Usuario" action="/cadastrarAmbulancia/lista.xhtml" rendered="#{sessao.admin}" /></li>
-						<li><h:commandLink value="Cadastro de Endereco" action="/cadastrarFuncionario/lista.xhtml" rendered="#{sessao.admin}" /></li>
-						<li><h:commandLink value="Cadastro de Objeto" action="/registrarChamada/form.xhtml" rendered="#{sessao.operador}" /></li>
-						<li><h:commandLink value="Sair" action="#{ctrLogin.logout}" rendered="#{sessao.funcionarioLogado != null}" /></li>
+                                                <li><h:commandLink value="Cadastro de Usuario" action="/cadastrarAmbulancia/lista.xhtml" rendered="#{usuarioLogadoManaged.admin or usuarioLogadoManaged.user}" /></li>
+                                                <li><h:commandLink value="Cadastro de Endereco" action="/cadastrarFuncionario/lista.xhtml" rendered="#{usuarioLogadoManaged.admin or usuarioLogadoManaged.user}" /></li>
+						<li><h:commandLink value="Cadastro de Objeto" action="/registrarChamada/form.xhtml" rendered="#{usuarioLogadoManaged.admin or usuarioLogadoManaged.user}" /></li>
+                                                <ui:remove><li><h:commandLink value="Sair" action="j_spring_security_logout" rendered="#{usuarioLogadoManaged.usuarioLogado != null}" /></li></ui:remove>
 					</ul>
 				</div>
 			</h:form>
