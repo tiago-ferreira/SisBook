@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="#{facesContext.externalContext.requestContextPath}/arquivos/estilos/style.css" rel="stylesheet" type="text/css" media="screen" />
+        <title><h:outputText value="SisBook :: " /><ui:insert name="titulo" /></title>
+    </h:head>
+
+    <h:body>
+        <div id="wrapper">
+            <div id="header">
+                <div id="logo">
+                    <h1><a href="#"><h:outputText value="Sistema de Controle de Emprestimo de Livros." /></a></h1>
+                    <p><h:outputText value="Uma aplicação Java EE 6" /></p>
+                </div>
+            </div>
+            <h:form>
+                <div id="menu">
+                    <ul>
+                        <li><h:commandLink value="Início" action="/menu/home.xhtml" /></li>
+                        <li><h:commandLink value="Cadastro de Usuario" action="/usuario/lista.xhtml"/></li>
+                        <li><h:commandLink value="Cadastro de Livro" action="/livro/lista.xhtml"/></li>
+                        <li><h:commandLink value="Cadastro de Midia" action="/midia/lista.xhtml"/></li>
+                        <li><a href="#{facesContext.externalContext.requestContextPath}/j_spring_security_logout">
+                                <h:outputText value="Sair"/>
+                            </a></li>
+                    </ul>
+                </div>
+            </h:form>
+            <div id="page"><div id="page-bgtop"><div id="page-bgbtm">
+                        <div id="content">
+                            <h:messages globalOnly="true" />
+
+                            <ui:insert name="content">Conteúdo não especificado...</ui:insert>
+                            <div style="clear: both;">&nbsp;</div>
+                        </div>
+                        <div style="clear: both;">&nbsp;</div>
+                    </div></div></div>
+        </div>
+
+        <div id="footer">
+            <p>Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+        </div>
+    </h:body>
+</html>

@@ -4,26 +4,21 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 template="/arquivos/modelos/decorador.xhtml">
-    <ui:define name="titulo">Bem-vindo</ui:define>
-
     <ui:define name="conteudo">
-        <h1>Bem-vindo ao SisBook</h1>
 
         <h:panelGroup>
-            <p>Seja bem-vindo ao Sistema de Controle de Emprestimo de Livros.
-                Por favor identifique-se utilizando o formulário abaixo.</p>
 
             <ui:decorate template="/arquivos/modelos/form.xhtml">
                 <form id="form" method="POST" action="j_spring_security_check">
                     <ui:decorate template="/arquivos/modelos/campo.xhtml">
                         <ui:param name="id" value="form:login" />
                         <ui:define name="nome">Nome de usuário</ui:define>
-                        <input type="text" id="login" name="j_username" size="15" />
+                        <input type="text" id="j_username" name="j_username" size="15" />
                     </ui:decorate>
                     <ui:decorate template="/arquivos/modelos/campo.xhtml">
                         <ui:param name="id" value="form:senha" />
                         <ui:define name="nome">Senha</ui:define>
-                        <input type="password" id="senha" name="j_password" size="15" />
+                        <input type="password" id="j_password" name="j_password" size="15" />
                     </ui:decorate>
                     <ui:decorate template="/arquivos/modelos/botoes.xhtml">
                         <h:commandButton value="Login" />
@@ -31,6 +26,5 @@
                 </form>
             </ui:decorate>
         </h:panelGroup>
-
     </ui:define>
 </ui:composition>

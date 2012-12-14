@@ -3,17 +3,17 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
-                template="/arquivos/modelos/decorador.xhtml">
+                template="/arquivos/modelos/menu.xhtml">
     <ui:define name="titulo">Bem-vindo</ui:define>
 
-    <ui:define name="conteudo">
+    <ui:define name="content">
         <h1>Bem-vindo ao SisBook</h1>
 
-
-        <h:panelGroup rendered="Verifica se o funcionario esta logado para mostrar isso">
-            <p><h:outputText value="Seja bem-vindo(a) ao SisBook, Nome do funcionario logado" /></p>
+        <h:panelGroup>
+            <ui:decorate template="/arquivos/modelos/form.xhtml">
+                <p>Seja bem-vindo ao Sistema de Controle de Emprestimo de Livros.
+                    Por favor identifique-se utilizando o formulário abaixo.</p>
+            </ui:decorate>
         </h:panelGroup>
-
     </ui:define>
 </ui:composition>
-
