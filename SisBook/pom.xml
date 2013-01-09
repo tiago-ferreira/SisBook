@@ -12,7 +12,6 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
     </properties>
 
     <dependencies>
@@ -121,20 +120,29 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.sonar-plugins.dotnet</groupId>
+                <artifactId>maven-dotnet-plugin</artifactId>
+                <version>0.6</version>
+                <extensions>true</extensions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>2.0</version>
+            </plugin>
         </plugins>
     </build>
     <repositories>
         <repository>
             <url>http://download.eclipse.org/rt/eclipselink/maven.repo/</url>
             <id>eclipselink</id>
-            <layout>default</layout>
             <name>Repository for library EclipseLink (JPA 2.0)</name>
         </repository>
         <repository>  
             <id>prime-repo</id>  
             <name>PrimeFaces Maven Repository</name>  
             <url>http://repository.primefaces.org</url>  
-            <layout>default</layout>  
         </repository> 
     </repositories>
 </project>

@@ -13,6 +13,6 @@ import java.util.List;
  */
 public interface ICidadeService {
     
-    public List<Cidade> recuperaUFs();
-    public List<Cidade> recuperaCidadePorUF(String uf);
+     List<Cidade> recuperaUFs();
+     List<Cidade> recuperaCidadePorUF(String uf);
 }

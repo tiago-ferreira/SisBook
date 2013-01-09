@@ -26,8 +26,8 @@ import javax.inject.Named;
 public class MidiaManaged implements Serializable {
 
     @EJB
-    IMidiaService midiaService;
-    Midia midia = new Midia();
+    private IMidiaService midiaService;
+    private Midia midia = new Midia();
     private String genero;
     private String estiloMidia;
     private String tipoMidia;

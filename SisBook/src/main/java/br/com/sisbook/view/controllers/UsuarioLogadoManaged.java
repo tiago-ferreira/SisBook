@@ -44,22 +44,16 @@ public class UsuarioLogadoManaged implements Serializable {
     }
 
     public boolean isAdmin() {
-        if (getUsuarioLogado() != null) {
-            if (getUsuarioLogado().getPapel().equals("ROLE_ADMIN")) {
+        if (getUsuarioLogado() != null && getUsuarioLogado().getPapel().equals("ROLE_ADMIN")) {
                 return true;
-            }
         }
-
         return false;
     }
 
     public boolean isUser() {
-        if (getUsuarioLogado() != null) {
-            if (getUsuarioLogado().getPapel().equals("ROLE_USER")) {
+        if (getUsuarioLogado() != null && getUsuarioLogado().getPapel().equals("ROLE_USER")) {
                 return true;
-            }
         }
-
         return false;
     }
 }

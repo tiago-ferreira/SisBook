@@ -18,8 +18,8 @@ public class ObjetoDominio implements IObjetoDominio{
 
     private static final long serialVersionUID = 1L;
     @Basic
-    @Column(nullable = false, length = 40)
-    protected String uuid;
+    @Column(nullable = false)
+    private String uuid;
 
     public ObjetoDominio() {
         uuid = UUID.randomUUID().toString();

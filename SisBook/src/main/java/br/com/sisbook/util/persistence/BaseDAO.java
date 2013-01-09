@@ -49,7 +49,7 @@ public abstract class BaseDAO<T extends ObjetoPersistente> implements IBaseDAO<T
     public T salvar(T objeto) {
         EntityManager em = getEntityManager();
         if (objeto.isPersistente()) {
-            objeto = em.merge(objeto);
+            return em.merge(objeto);
         } else {
             em.persist(objeto);
         }

@@ -18,7 +18,7 @@ import javax.persistence.PersistenceContext;
 public class LivroDAO extends BaseDAO<Livro> implements ILivroDAO{
 
     @PersistenceContext
-    EntityManager em;
+    private EntityManager em;
     
     @Override
     protected EntityManager getEntityManager() {

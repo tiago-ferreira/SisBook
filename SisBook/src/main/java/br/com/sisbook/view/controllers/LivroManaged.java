@@ -24,8 +24,8 @@ import javax.inject.Named;
 public class LivroManaged implements Serializable {
 
     @EJB
-    ILivroService livroService;
-    Livro livro = new Livro();
+    private ILivroService livroService;
+    private Livro livro = new Livro();
     private String genero;
     private static List<SelectItem> generos;
 

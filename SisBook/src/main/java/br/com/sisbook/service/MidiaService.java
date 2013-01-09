@@ -21,7 +21,7 @@ import javax.enterprise.context.SessionScoped;
 public class MidiaService implements IMidiaService,Serializable{
 
     @EJB
-    IMidiaDAO midiaDAO;
+    private IMidiaDAO midiaDAO;
     
     private List<Midia> listagem;
     

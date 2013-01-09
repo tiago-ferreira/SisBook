@@ -15,6 +15,6 @@ import javax.ejb.Local;
  */
 @Local
 public interface ICidadeDAO extends IBaseDAO<Cidade> {
-    public List<Cidade> recuperaUFs();
-    public List<Cidade> recuperaCidadesPorUF(String uf);
+     List<Cidade> recuperaUFs();
+     List<Cidade> recuperaCidadesPorUF(String uf);
 }

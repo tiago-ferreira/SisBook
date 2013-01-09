@@ -52,6 +52,6 @@ public class ObjetoPersistente extends ObjetoDominio implements IObjetoPersisten
 
     @Override
     public String toString() {
-        return "Instância de " + getClass().getName() + " (id: " + id + "; uuid: " + uuid + ")";
+        return "Instância de " + getClass().getName() + " (id: " + id + "; uuid: " + getUuid() + ")";
     }
 }

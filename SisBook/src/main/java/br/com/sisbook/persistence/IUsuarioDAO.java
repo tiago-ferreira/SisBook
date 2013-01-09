@@ -14,5 +14,5 @@ import javax.ejb.Local;
  */
 @Local
 public interface IUsuarioDAO extends IBaseDAO<Usuario> {
-    public Usuario recuperaPorEmail(String email);
+     Usuario recuperaPorEmail(String email);
 }
